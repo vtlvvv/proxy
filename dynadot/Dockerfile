@@ -1,8 +1,5 @@
 FROM nginx:stable-alpine
-
-# Install nginx Lua module
-RUN apk add --no-cache nginx-mod-http-lua
-
+RUN apk add --no-cache nginx-mod-http-lua && mkdir -p /run/nginx
 COPY nginx.conf /etc/nginx/nginx.conf
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
